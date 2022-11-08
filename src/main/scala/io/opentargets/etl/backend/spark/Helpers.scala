@@ -82,9 +82,10 @@ object Helpers extends LazyLogging {
     val sparkConf: SparkConf = new SparkConf()
       .setAppName(appName)
       .set("spark.driver.maxResultSize", "0")
-      .set("spark.debug.maxToStringFields", "2000")
+      .set("spark.debug.maxToStringFields", "4000")
       // TODO - Externalize this to a configuration parameter (put in here for literature pipeline)
       .set("spark.sql.broadcastTimeout", "3000")
+      .set("spark.sql.debug.maxToStringFields", "4000")
 
     // if some uri then setmaster must be set otherwise
     // it tries to get from env if any yarn running
